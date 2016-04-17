@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Book search</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/commons.css">
+</head>
+<body ng-app="bookSearch">
+  <main class="container-app">
+    <div class="book-search" ng-controller="bookListCtrl">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="search-content navbar-form navbar-left">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="book-search-input form-control"
+                       placeholder="Search any book"
+                       ng-change="onChangeStr()"
+                       ng-model="searchStr">
+                <div class="input-group-addon">
+                  <input type="checkbox" ng-model="autoSearch">
+                  <span>Auto search</span>
+                </div>
+              </div>
+            </div> 
+            <button class="btn btn-default" 
+                    ng-click="search()"
+                    ng-disabled="autoSearch">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+              <div class="search-filter" dropdown></div>
+          </div>
+        </div>
+      </nav>
+      <div spinner></div>
+      <div class="book-search-result">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="item in items | orderBy:predicate:reverse">
+            <section class="row" book-item>
+            </section>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+    
+<script src="bower_components/angular/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="bower_components/prefixfree/prefixfree.js"></script>
+<script src="dest/js/main.min.js"></script>
+</body>
+</html>

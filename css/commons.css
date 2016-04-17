@@ -1,0 +1,43 @@
+.container-app {
+	margin: 0 25px;
+}
+.loading {
+	background: url("img/ajax-loader.gif") no-repeat center center;
+	position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+}
+.loading + .book-search-result {
+	opacity: 0.4;
+}
+
+.search-content {
+	padding: 0;
+}
+.search-filter {
+	margin-left: 4px;
+    float: right;
+}
+.book-search-result {
+	margin-top: 65px;
+}
+.book-search-result img {
+	width: 100px;
+	height: 145px;
+}
+.book-search-result summary {
+	cursor: pointer;
+	-webkit-user-select: none;
+}
+.book-search-result .description {
+	margin-top: 10px;
+    max-height: 145px;
+    overflow: auto;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #dcdcdc;
+}
+summary:focus {
+	outline: none;
+}
